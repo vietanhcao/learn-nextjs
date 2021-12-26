@@ -4,10 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/dist/client/router'
 
 const Home: NextPage = () => {
-
   const router = useRouter()
   return (
     <div className={styles.container}>
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
           <a>about</a>
         </Link>
 
-        <button onClick={() => router.push('/posts/123')} >Go to  post detail page </button>
+        <button onClick={() => router.push('/posts/123')}>Go to post detail page </button>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
