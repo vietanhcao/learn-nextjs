@@ -6,10 +6,14 @@ export interface PostDetailPageProps {
   post: any
 }
 
-export default function PostListPage({post}: PostDetailPageProps) {
+export default function PostListPage({ post }: PostDetailPageProps) {
   const router = useRouter()
 
-  if(!post) return null
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
+  if (!post) return null
   return (
     <div>
       <h1>PostDetailPage</h1>
@@ -26,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: data.data.map((post) => ({ params: { postId: post.id } })),
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -44,10 +48,10 @@ export const getStaticProps: GetStaticProps<PostDetailPageProps> = async (
   const response = await fetch(`https://js-post-api.herokuapp.com/api/posts/${postId}`)
   const data: { data: any[] } = await response.json()
 
-
   return {
     props: {
       post: data,
     },
+    revalidate: 5,
   }
 }
