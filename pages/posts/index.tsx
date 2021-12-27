@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next'
-import Link from 'next/Link'
+import Link from 'next/link'
 import * as React from 'react'
 
 export interface PostListPageProps {
