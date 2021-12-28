@@ -1,7 +1,9 @@
 import React from 'react'
 
-interface Props {}
+interface Props {
+  children: React.ReactElement
+}
 
-export const EmptyLayout = (props: Props) => {
-  return <div>EmptyLayout</div>
+export const EmptyLayout = ({ children }: Props) => {
+  return <div>{children}</div>
 }
