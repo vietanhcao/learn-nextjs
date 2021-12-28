@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import { MainLayout } from '@/components/Layout'
+import { AdminLayout } from '@/components/Layout/admin'
 
 // const Header = dynamic(() => import('@/components/common/Header'), { ssr: false })
 
@@ -51,7 +52,7 @@ export default function AboutPage(props: AboutPageProps) {
 }
 
 // attack mainlayout 
-AboutPage.Layout = MainLayout
+AboutPage.Layout = AdminLayout
 
 export const getStaticProps: GetStaticProps<AboutPageProps> = async (
   context: GetStaticPropsContext
